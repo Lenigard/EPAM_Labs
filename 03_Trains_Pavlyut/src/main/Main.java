@@ -9,7 +9,7 @@ import java.util.ArrayDeque;
 
 public class Main {
 
-    private final static double TIME_GO_THROW = 0.3;
+    private final static double TIME_GO_THROW = 1;
     private final static int TRAINS_COUNT_LEFT = 3;
     private final static int TRAINS_COUNT_RIGHT = 3;
 

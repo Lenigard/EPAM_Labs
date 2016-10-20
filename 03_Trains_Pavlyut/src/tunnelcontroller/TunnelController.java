@@ -14,6 +14,7 @@ public class TunnelController {
     ArrayDeque<Train> trainLeft;
     ArrayDeque<Train> trainRight;
 
+
     public TunnelController(ArrayDeque<Train> trainLeft, ArrayDeque<Train> trainRight, Tunnel tunnel) {
         this.trainLeft = trainLeft;
         this.trainRight = trainRight;

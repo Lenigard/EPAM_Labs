@@ -1,15 +1,20 @@
 package train;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import possibleexeption.SemaphoreException;
 import tunnel.Tunnel;
 
 import java.io.IOException;
 
 public class Train extends Thread {
+
     private String number;
     private int timeGoThrough;
     private boolean going = false;
     private String side;
-    Tunnel tunnel;
+    private Tunnel tunnel;
+    private final static Logger LOG = LogManager.getLogger();
 
     public Train(String number, double timeGoThrough, Tunnel tunnel, String side) throws IOException {
         this.number = number;
@@ -35,11 +40,19 @@ public class Train extends Thread {
         System.out.println("Поезд номер " + number + " прибыл к тоннелю " + side);
         while (!going) {
             if (tunnel.firstIsFree()) {
-                tunnel.goingThroughFirst(this);
+                try {
+                    tunnel.goingThroughFirst(this);
+                } catch (SemaphoreException e) {
+                    LOG.error(e.getMessage());
+                }
                 going = true;
             } else {
                 if (tunnel.secondIsFree()) {
-                    tunnel.goingThroughSecond(this);
+                    try {
+                        tunnel.goingThroughSecond(this);
+                    } catch (SemaphoreException e) {
+                        LOG.error(e.getMessage());
+                    }
                     going = true;
                 }
             }
