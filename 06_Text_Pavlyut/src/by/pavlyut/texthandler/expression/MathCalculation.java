@@ -75,7 +75,7 @@ public class MathCalculation{
         }
     }
 
-    public double convert(String inputString) {
+    public double convert(String inputString) throws CalculatingEquationException{
         replaceIncrementDecrement(inputString);
         inputString = replaceIncrementDecrement(inputString);
         NumbersContext doublesContext = new NumbersContext();

@@ -26,7 +26,6 @@ public class NonTerminalHandler extends AbstractHandler {
     public Component executeText(String text) {
         component = new Compositor();
         Matcher matcher = currentPattern.matcher(text);
-
         while (matcher.find()){
             component.add(successor.executeText(matcher.group()));
         }

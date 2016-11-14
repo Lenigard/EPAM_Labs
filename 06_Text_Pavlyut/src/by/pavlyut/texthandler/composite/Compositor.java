@@ -2,9 +2,6 @@ package by.pavlyut.texthandler.composite;
 
 import java.util.ArrayList;
 
-/**
- * Created by Lenigard on 03.11.2016.
- */
 public class Compositor implements Component {
 
     private ArrayList<Component> components = new ArrayList<>();
@@ -27,4 +24,9 @@ public class Compositor implements Component {
         }
         return sb.toString();
     }
+
+    public ArrayList<Component> getComponents(){
+        return components;
+    }
+
 }

@@ -1,8 +1,5 @@
 package by.pavlyut.texthandler.composite;
 
-/**
- * Created by Lenigard on 10.11.2016.
- */
 public class NonSeparatableLeaf implements Component {
     private String value;
     private NonSeparatableType type;

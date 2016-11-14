@@ -1,8 +1,6 @@
 package by.pavlyut.texthandler.expression;
 
-/**
- * Created by Lenigard on 14.11.2016.
- */
+
 public class NumbersMinus extends AbstractMathOperator{
 
     @Override

@@ -1,8 +1,5 @@
 package by.pavlyut.texthandler.expression;
 
-/**
- * Created by Lenigard on 14.11.2016.
- */
 public class NumbersDivide extends AbstractMathOperator {
     @Override
     public void interpret(NumbersContext context) {
