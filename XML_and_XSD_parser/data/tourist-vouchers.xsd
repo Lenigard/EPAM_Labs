@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/tourist-voucher"
+        xmlns:tns="http://www.example.com/tourist-voucher"
+        elementFormDefault="qualified">
+    <element name="common" type="tns:Common-info" abstract="true"/>
+    <element name="hotel" type="tns:Hotel" substitutionGroup="tns:common"/>
+    <element name="tourism" type="tns:Tourism" substitutionGroup="tns:common"/>
+    <element name="bungalow" type="tns:Bungalow" substitutionGroup="tns:common"/>
+
+    <complexType name="Common-info">
+        <sequence>
+            <attribute name="country">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z][a-z]+([- ][A-Z]?[a-z]?)+"/>
+                    </restriction>
+                </simpleType>
+            </attribute>
+        <element name="days" type="integer"/>
+        <element name="cost" type="integer"/>
+        </sequence>
+    </complexType>
+    <complexType name="Hotel">
+        <complexContent>
+            <extension base="tns:Common-info">
+                <attribute name="Name" type="string" use="required"/>
+                <complexType name="hotel-params">
+                    <simpleType name="stars">
+                        <restriction base="integer">
+                            <minInclusive value="1"/>
+                            <maxInclusive value="5"/>
+                        </restriction>
+                    </simpleType>
+                    <simpleType name="places-count">
+                        <restriction base="integer">
+                            <minInclusive value="1"/>
+                        </restriction>
+                    </simpleType>
+                    <simpleType name="nutrition">
+                        <restriction base="string">
+                            <enumeration value="HB"/>
+                            <enumeration value="BB"/>
+                            <enumeration value="AI"/>
+                        </restriction>
+                    </simpleType>
+                </complexType>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Tourism">
+        <complexContext>
+            <extension base="tns:Common-info">
+                <simpleType name="transport-type">
+                    <restriction base="string">
+                        <enumeration value="Plane"/>
+                        <enumeration value="Train"/>
+                        <enumeration value="Bus"/>
+                    </restriction>
+                </simpleType>
+                <simpleType name="crossing-daytime">
+                    <restriction base="string">
+                        <enumeration value="Day"/>
+                        <enumeration value="Night"/>
+                    </restriction>
+                </simpleType>
+                <simpleType name="crossing-count">
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </extension>
+        </complexContext>
+    </complexType>
+    <complexType name="Bungalow">
+        <extension base="tns:Common-info">
+            <attribute name="bungalow-id" type="ID" default="0"/>
+            <simpleType name="distance-from-beach">
+                <restriction base="integer">
+                    <minInclusive value="0"/>
+                </restriction>
+            </simpleType>
+        </extension>
+    </complexType>
+</schema>

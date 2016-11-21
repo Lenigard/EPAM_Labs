@@ -1,0 +1,52 @@
+<tourist-voucher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.example.com/tourist-voucher"
+           xsi:schemaLocation="http://www.example.com/tourist-voucher tourist-vouchers.xsd">
+    <hotel Name="Belarus Holyday">
+        <country>Belarus</country>
+        <days>12</days>
+        <cost>12345</cost>
+        <hotel-params>
+            <stars>3</stars>
+            <places-count>1</places-count>
+            <nutrition>BB</nutrition>
+        </hotel-params>
+    </hotel>
+    <hotel Name="Miami Holyday">
+        <country>USA</country>
+        <days>5</days>
+        <cost>567654</cost>
+        <hotel-params>
+            <stars>5</stars>
+            <places-count>3</places-count>
+            <nutrition>AI</nutrition>
+        </hotel-params>
+    </hotel>
+    <tourism>
+        <country>India</country>
+        <days>111</days>
+        <cost>111</cost>
+        <transport-type>Train</transport-type>
+        <crossing-daytime>Day</crossing-daytime>
+        <crossing-count>5</crossing-count>
+    </tourism>
+    <tourism>
+        <country>Sweden</country>
+        <days>1</days>
+        <cost>123456</cost>
+        <transport-type>Plain</transport-type>
+        <crossing-daytime>Night</crossing-daytime>
+        <crossing-count>1</crossing-count>
+    </tourism>
+    <bungalow bungalow-id="11234">
+        <country>Ukraine</country>
+        <days>10</days>
+        <cost>123</cost>
+        <distance-from-beach>50</distance-from-beach>
+    </bungalow>
+    <bungalow bungalow-id="4321">
+        <country>Russia</country>
+        <days>1000</days>
+        <cost>5</cost>
+        <distance-from-beach>50000</distance-from-beach>
+    </bungalow>
+</tourist-voucher>
